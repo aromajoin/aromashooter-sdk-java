@@ -1,5 +1,5 @@
 import com.aromajoin.sdk.core.device.AromaShooter;
-import com.aromajoin.sdk.core.device.Port;
+import com.aromajoin.sdk.core.device.AromaChamber;
 import com.aromajoin.sdk.jvm.DiscoverCallback;
 import com.aromajoin.sdk.jvm.usb.USBASController;
 import java.util.List;
@@ -32,12 +32,12 @@ public class AromaShooterUSBSample {
       for (AromaShooter aromaShooter : usbController.getConnectedDevices()) {
         System.out.println("AromaShooter: " + aromaShooter.getSerial());
       }
-      Port port1 = new Port(1, 25);
-      Port port2 = new Port(2, 50);
-      Port port5 = new Port(5, 100);
-      usbController.diffuseAll(3000, 100, 100, port1, port2, port5);
+      AromaChamber chamber1 = new AromaChamber(1, 25);
+      AromaChamber chamber2 = new AromaChamber(2, 50);
+      AromaChamber chamber5 = new AromaChamber(5, 100);
+      usbController.shootAllWithIntensity(3000, 100, 100, chamber1, chamber2, chamber5);
 
-      //usbController.diffuse("ASN2A00010", 3000,100, 100, port1, port2, port5);
+      //usbController.shootWithIntensity("ASN2A00010", 3000,100, 100, chamber1, chamber2, chamber5);
       usbController.disconnectAll();
     }
   }
@@ -53,7 +53,7 @@ public class AromaShooterUSBSample {
         for (AromaShooter aromaShooter : aromaShooters) {
           System.out.println("AromaShooter: " + aromaShooter.getSerial());
         }
-        usbController.diffuseAll(3000, true, 1, 2, 5);
+        usbController.shootAllSimple(3000, true, 1, 2, 5);
         usbController.disconnectAll();
       }
 
@@ -74,10 +74,10 @@ public class AromaShooterUSBSample {
         for (AromaShooter aromaShooter : aromaShooters) {
           System.out.println("AromaShooter: " + aromaShooter.getSerial());
         }
-        Port port1 = new Port(1, 25);
-        Port port2 = new Port(2, 50);
-        Port port5 = new Port(5, 100);
-        usbController.diffuseAll(3000, 100, 100, port1, port2, port5);
+        AromaChamber chamber1 = new AromaChamber(1, 25);
+        AromaChamber chamber2 = new AromaChamber(2, 50);
+        AromaChamber chamber5 = new AromaChamber(5, 100);
+        usbController.shootAllWithIntensity(3000, 100, 100, chamber1, chamber2, chamber5);
         usbController.disconnectAll();
       }
 
@@ -98,7 +98,7 @@ public class AromaShooterUSBSample {
       for (AromaShooter aromaShooter : usbController.getConnectedDevices()) {
         System.out.println("AromaShooter: " + aromaShooter.getSerial());
       }
-      usbController.diffuseAll(3000, true, 1, 2, 5);
+      usbController.shootAllSimple(3000, true, 1, 2, 5);
       usbController.disconnectAll();
     }
   }

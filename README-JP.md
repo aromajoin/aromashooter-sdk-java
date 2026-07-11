@@ -1,6 +1,6 @@
-[English](https://github.com/aromajoin/controller-sdk-java) / [日本語](README-JP.md)
+[English](https://github.com/aromajoin/aromashooter-sdk-java) / [日本語](README-JP.md)
 
-# Controller SDK for Java
+# Aroma Shooter SDK (Java)
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.aromajoin.sdk/jvm/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.aromajoin.sdk/jvm)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
@@ -53,11 +53,11 @@ dependencies {
 </dependency>
 ```
 ### バイナリファイル（.jar)
-1. [最新のcontroller-sdk-java.jarファイル](https://github.com/aromajoin/controller-sdk-java/releases/tag/v2.4.0)をダウンロードしてください。
+1. [最新のcontroller-sdk-java.jarファイル](https://github.com/aromajoin/aromashooter-sdk-java/releases/tag/v2.4.0)をダウンロードしてください。
 2. それをプロジェクトのビルドパスに追加します。
 
 ## 使用法
-詳細は[サンプルプロジェクト](https://github.com/aromajoin/controller-sdk-java/tree/master/Sample)をチェックしてください。
+詳細は[サンプルプロジェクト](https://github.com/aromajoin/aromashooter-sdk-java/tree/master/Sample)をチェックしてください。
 
 ### セットアップ
 ```java
@@ -91,11 +91,11 @@ List<AromaShooter> connectedDevices = usbController.getConnectedDevices();
 ```java
 /**
  * @param duration     噴射持続時間（ミリ秒）。
- * @param booster      ブースターが使用されているかどうかを判定する。(true: より強く噴射する, false: より弱く噴射する)
- * @param ports        カートリッジ番号を噴射する。値：1 ~ 6.
+ * @param internalBooster      ブースターが使用されているかどうかを判定する。(true: より強く噴射する, false: より弱く噴射する)
+ * @param chambers        カートリッジ番号を噴射する。値：1 ~ 6.
  */
 // 例：以下のコードは、カートリッジ2と5を3秒間噴射します。
-usbController.diffuseAll(duration, boosterIntensity, fanIntensity, ports);
+usbController.shootAllWithIntensity(duration, internalBoosterIntensity, externalBoosterIntensity, chambers);
 ```
 
 * AS2（Aroma Shooter 2）デバイスのみのディフューザー香りメソッド
@@ -105,22 +105,22 @@ usbController.diffuseAll(duration, boosterIntensity, fanIntensity, ports);
  * @param duration              拡散時間（ミリ秒）
  * @param boosterIntensity      ブースターポート。値： 0~100
  * @param fanIntensity          ファンポート。値： 0~100
- * @param ports                 ポートの配列。値: Port(portNumber, portIntensity)
+ * @param chambers                 ポートの配列。値: AromaChamber(number, concentration)
  */
  
-usbController.diffuseAll(duration, boosterIntensity, fanIntensity, ports);
+usbController.shootAllWithIntensity(duration, internalBoosterIntensity, externalBoosterIntensity, chambers);
 ```
 
 * その他の噴射法
 ```java
 // 1つのアロマシューターに香りを噴射する
-controller.diffuse(aromaShooter, duration, booster, ports);
+controller.shootSimple(aromaShooter, duration, internalBooster, chambers);
 // シリアル番号入力で1つのアロマシューターに香りを噴射する
-controller.diffuse(aromaShooterSerial, duration, booster, ports);
+controller.shootSimple(aromaShooterSerial, duration, internalBooster, chambers);
 // 1つのアロマシューターに香りを噴射する [アロマシューター2のみがサポートされています](香りの強度を調整可)
-controller.diffuse(aromaShooter, durationMilliSec, boosterIntensity, fanIntensity, ports);
+controller.shootWithIntensity(aromaShooter, durationMilliSec, internalBoosterIntensity, externalBoosterIntensity, chambers);
 // シリアル番号入力で1つのアロマシューターに香りを噴射する [アロマシューター2のみがサポートされています](香りの強度を調整可)
-controller.diffuse(aromaShooterSerial, durationMilliSec, boosterIntensity, fanIntensity, ports);
+controller.shootWithIntensity(aromaShooterSerial, durationMilliSec, internalBoosterIntensity, externalBoosterIntensity, chambers);
 ```
 
 ### 噴射を止める
@@ -139,7 +139,7 @@ usbController.stopAllPorts(aromaShooter);
 usbController.disconnectAll();
 ```
 ## 問題
-**問題が発生したり、新機能が必要な場合は、[新しい問題](https://github.com/aromajoin/controller-sdk-java/issues)を作成してください。**
+**問題が発生したり、新機能が必要な場合は、[新しい問題](https://github.com/aromajoin/aromashooter-sdk-java/issues)を作成してください。**
 
 ## ライセンス
-[こちら](https://github.com/aromajoin/controller-sdk-java/blob/master/LICENSE.md)を参照してください。
+[こちら](https://github.com/aromajoin/aromashooter-sdk-java/blob/master/LICENSE.md)を参照してください。
