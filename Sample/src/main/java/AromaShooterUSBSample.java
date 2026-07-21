@@ -8,24 +8,24 @@ public class AromaShooterUSBSample {
   public static void main(String[] args) {
     System.out.println("Aroma Shooter's SDK sample!");
 
-    // Diffuse scents with intensity control
+    // Shoot scents with intensity control
     // Aroma Shooter 2 only is supported
-    syncScanAndDiffuseWithIntensity();
-    //asyncScanAndDiffuseWithIntensity();
+    syncScanAndShootWithIntensity();
+    //asyncScanAndShootWithIntensity();
 
-    // Diffuse scents without intensity control
+    // Shoot scents without intensity control
     // Aroma Shooter 1 and 2 both are supported
-    //syncScanAndDiffuse();
-    //asyncScanAndDiffuse();
+    //syncScanAndShoot();
+    //asyncScanAndShoot();
 
     System.out.println("Completed.");
   }
 
   /**
-   * Scans Aroma Shooter synchronously and diffuse scents with intensity control
+   * Scans Aroma Shooter synchronously and shoot scents with intensity control
    * Supported Aroma Shooter: AS2
    */
-  private static void syncScanAndDiffuseWithIntensity() {
+  private static void syncScanAndShootWithIntensity() {
     USBASController usbController = new USBASController();
     usbController.scanAndConnect();
     if (!usbController.getConnectedDevices().isEmpty()) {
@@ -43,10 +43,10 @@ public class AromaShooterUSBSample {
   }
 
   /**
-   * Scans Aroma Shooter asynchronously and diffuse scents
+   * Scans Aroma Shooter asynchronously and shoot scents
    * Supported Aroma Shooter: AS1 & AS2
    */
-  private static void asyncScanAndDiffuse() {
+  private static void asyncScanAndShoot() {
     USBASController usbController = new USBASController();
     usbController.scanAndConnect(new DiscoverCallback() {
       @Override public void onDiscovered(List<AromaShooter> aromaShooters) {
@@ -64,10 +64,10 @@ public class AromaShooterUSBSample {
   }
 
   /**
-   * Scans Aroma Shooter asynchronously and diffuse scents with intensity control
+   * Scans Aroma Shooter asynchronously and shoot scents with intensity control
    * Supported Aroma Shooter: AS2
    */
-  private static void asyncScanAndDiffuseWithIntensity() {
+  private static void asyncScanAndShootWithIntensity() {
     USBASController usbController = new USBASController();
     usbController.scanAndConnect(new DiscoverCallback() {
       @Override public void onDiscovered(List<AromaShooter> aromaShooters) {
@@ -88,10 +88,10 @@ public class AromaShooterUSBSample {
   }
 
   /**
-   * Scans Aroma Shooter synchronously and diffuse scents
+   * Scans Aroma Shooter synchronously and shoot scents
    * Supported Aroma Shooter: AS1 & AS2
    */
-  private static void syncScanAndDiffuse() {
+  private static void syncScanAndShoot() {
     USBASController usbController = new USBASController();
     usbController.scanAndConnect();
     if (!usbController.getConnectedDevices().isEmpty()) {

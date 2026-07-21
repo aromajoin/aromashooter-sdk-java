@@ -10,5 +10,5 @@ repositories {
 }
 
 dependencies {
-  compile 'com.aromajoin.sdk:jvm:2.4.0'
+  implementation 'com.aromajoin.sdk:jvm:3.1.0'
 }
