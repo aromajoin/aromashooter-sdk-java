@@ -9,7 +9,7 @@
 
 [Aroma Shooter](https://aromajoin.com/products/aroma-shooter)を**USB**経由で接続・制御するためのデスクトップJava向けSDKです。
 
-> **重要 — 香りを噴射するには内部ブースターが必要です。** 噴射のたびに有効にしてください。シンプルAPIでは `internalBooster: true`、濃度指定APIでは `internalBoosterIntensity > 0` を指定します。内部ブースターがオフの場合、香りは出ません。
+> **重要 — 香りを噴射するには内部ブースターが必要です。** 噴射のたびに有効にしてください。シンプルAPIでは `internalBooster: true`、強度APIでは `internalBoosterIntensity > 0` を指定します。内部ブースターがオフの場合、香りは出ません。
 
 本SDKは2つのMavenアーティファクトで構成されます。
 
@@ -31,7 +31,7 @@
 5. [使用法](#使用法)
     - [0. セットアップと検索](#0-セットアップと検索)
     - [1. シンプル噴射API (AS1, AS2)](#1-シンプル噴射api-as1-as2)
-    - [2. 濃度指定噴射API (AS2, AS3)](#2-濃度指定噴射api-as2-as3)
+    - [2. 強度噴射API (AS2, AS3)](#2-強度噴射api-as2-as3)
     - [3. 切断と再接続](#3-切断と再接続)
 6. [トラブルシューティング](#トラブルシューティング)
 7. [ライセンス](#ライセンス)
@@ -44,7 +44,7 @@
 
 -   USB接続対応のAroma Shooter
     -   シンプル噴射API：**AS1, AS2** に対応
-    -   濃度指定噴射API：**AS2, AS3**（新しいモデル）に対応
+    -   強度噴射API：**AS2, AS3**（新しいモデル）に対応
 
 ---
 
@@ -99,7 +99,7 @@ Maven:
 
 名称変更ではなく、3.1.0で新たに使えるようになったものが2つあります。
 
--   `stopAllChambersWithIntensity()` は3.1.0で追加されました（それ以前はSDKから正しい濃度指定用の停止フレームを送れませんでした）。`stopAllChambers()` との違いは送信するプロトコルフレームの長さ（21バイト/15バイト）だけで、**どちらを呼んでもデバイスは停止します**。どのAPIで開始した噴射でも止められます。
+-   `stopAllChambersWithIntensity()` は3.1.0で追加されました（それ以前はSDKから正しい強度用の停止フレームを送れませんでした）。`stopAllChambers()` との違いは送信するプロトコルフレームの長さ（21バイト/15バイト）だけで、**どちらを呼んでもデバイスは停止します**。どのAPIで開始した噴射でも止められます。
 -   `connect(aromaShooter, callback)` と `disconnect(aromaShooter, callback)` を実装しました。従来は `UnsupportedOperationException` を投げていたため、ポートを解放する手段は `disconnectAll()` のみでした。
 
 ---
@@ -169,9 +169,9 @@ usb.stopAllChambers(aromaShooter);  // 1台のみ
 
 ---
 
-<a id="2-濃度指定噴射api-as2-as3"></a>
+<a id="2-強度噴射api-as2-as3"></a>
 
-### 2. 濃度指定噴射API (AS2, AS3)
+### 2. 強度噴射API (AS2, AS3)
 
 `AromaChamber` はチャンバー番号と濃度を保持します。
 
@@ -259,7 +259,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 **エラーは出ないが香りが出ない。** 内部ブースターがオフになっています。`internalBooster: true`、または `internalBoosterIntensity` に0より大きい値を指定してください。
 
-**噴射が止まらない。** 3.1.0へ更新してください。それ以前のバージョンでは濃度指定用の停止フレームが不正で、`shootWithIntensity*` で開始した噴射が止まらないことがありました。3.1.0以降は `stopAllChambers()` / `stopAllChambersWithIntensity()` のどちらでも停止します。
+**噴射が止まらない。** 3.1.0へ更新してください。それ以前のバージョンでは強度用の停止フレームが不正で、`shootWithIntensity*` で開始した噴射が止まらないことがありました。3.1.0以降は `stopAllChambers()` / `stopAllChambersWithIntensity()` のどちらでも停止します。
 
 **0を指定したのにブースターが動き続ける。** 3.1.0で修正されました。以前のバージョンでは強度0のチャンネルをコマンドに含めなかったため、デバイスが直前の指示をそのまま継続していました。
 
