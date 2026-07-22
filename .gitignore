@@ -8,3 +8,16 @@ hs_err_pid*
 
 .vscode/
 .DS_Store
+
+# Gradle
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IntelliJ project files
+*.iml
+*.ipr
+*.iws
+.idea/
