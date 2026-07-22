@@ -269,6 +269,6 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 ## ライセンス
 
-詳細は[LICENSE](/LICENSE.md)ファイルを参照してください。
+詳細は[LICENSE](/LICENSE)ファイルを参照してください。
 
 **問題が発生したり、新機能が必要な場合は、[新しい問題](https://github.com/aromajoin/aromashooter-sdk-java/issues)を作成してください。**
