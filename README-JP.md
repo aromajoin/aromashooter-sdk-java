@@ -4,7 +4,7 @@
 
 **Version 3.1.0**
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.aromajoin.sdk/jvm/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.aromajoin.sdk/jvm)
+[![Maven Central](https://img.shields.io/maven-central/v/com.aromajoin.sdk/jvm?style=flat-square&label=Maven%20Central)](https://central.sonatype.com/artifact/com.aromajoin.sdk/jvm)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 [Aroma Shooter](https://aromajoin.com/products/aroma-shooter)を**USB**経由で接続・制御するためのデスクトップJava向けSDKです。
