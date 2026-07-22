@@ -53,7 +53,7 @@
 ### 前提条件
 
 -   JRE **1.8** 以降
--   デバイスがシリアル/COMデバイスとして認識されている必要があります。必要に応じて、お使いのOS用の[FTDIドライバ](http://www.ftdichip.com/FTDrivers.htm)をインストールしてください。
+-   デバイスがシリアル/COMデバイスとして認識されている必要があります。必要に応じて、お使いのOS用の[FTDIドライバ](https://ftdichip.com/drivers/vcp-drivers/)をインストールしてください。
 
 ---
 

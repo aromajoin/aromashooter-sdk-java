@@ -53,7 +53,7 @@ This SDK ships as two Maven artifacts:
 ### Prerequisites
 
 -   JRE **1.8** or later
--   The device must be recognised as a serial/COM device. Install the [FTDI driver](http://www.ftdichip.com/FTDrivers.htm) for your OS if required.
+-   The device must be recognised as a serial/COM device. Install the [FTDI driver](https://ftdichip.com/drivers/vcp-drivers/) for your OS if required.
 
 ---
 
