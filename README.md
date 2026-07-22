@@ -253,7 +253,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 <a id="troubleshooting"></a>
 
-### Troubleshooting
+## Troubleshooting
 
 **No devices found.** Check the FTDI driver is installed and that the port is not already open in another application — a serial port is exclusive. If a previous run of your own program did not call `disconnectAll()`, its port may still be held.
 
@@ -267,7 +267,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 <a id="license"></a>
 
-### License
+## License
 
 Please check the [LICENSE](/LICENSE.md) file for the details.
 
