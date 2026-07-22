@@ -99,7 +99,7 @@ If you cannot use a dependency manager, the jars are attached to the [latest rel
 
 Two things are new in 3.1.0 rather than renamed:
 
--   `stopAllChambersWithIntensity()` stops a shoot started with the intensity API. `stopAllChambers()` sends the shorter command, which does not stop it.
+-   `stopAllChambersWithIntensity()` is new in 3.1.0 — before, the SDK could not send a valid intensity-stop frame at all. It and `stopAllChambers()` differ only in the protocol frame they send (21-byte vs 15-byte); **either one stops the device**, whichever API started the shoot.
 -   `connect(aromaShooter, callback)` and `disconnect(aromaShooter, callback)` are implemented. They used to throw `UnsupportedOperationException`, so `disconnectAll()` was the only way to release a port.
 
 ---
@@ -205,7 +205,7 @@ usb.stopAllChambersWithIntensity();
 usb.stopAllChambersWithIntensity(aromaShooter);
 ```
 
-> The two APIs send different commands, and **each needs its own stop**. `stopAllChambers()` will not stop a shoot started with `shootWithIntensity*`.
+> `stopAllChambers()` and `stopAllChambersWithIntensity()` differ only in the protocol frame length (15-byte vs 21-byte). **Either one stops the device**, whichever API started the shoot.
 
 ---
 
@@ -259,7 +259,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 **Nothing comes out, but no error.** The internal booster is off. Pass `internalBooster: true`, or an `internalBoosterIntensity` above 0.
 
-**The scent does not stop.** You are probably calling the stop that belongs to the other API. Use `stopAllChambersWithIntensity()` after `shootWithIntensity*`, and `stopAllChambers()` after `shootSimple*`.
+**The scent does not stop.** Update to 3.1.0. Earlier versions sent a malformed intensity-stop frame, so a shoot started with `shootWithIntensity*` could keep running. From 3.1.0 either `stopAllChambers()` or `stopAllChambersWithIntensity()` halts the device.
 
 **A booster keeps running after you asked for 0.** Fixed in 3.1.0. Earlier versions left a channel untouched when its intensity was 0, and the device carried on with its previous instruction.
 

@@ -99,7 +99,7 @@ Maven:
 
 名称変更ではなく、3.1.0で新たに使えるようになったものが2つあります。
 
--   `stopAllChambersWithIntensity()` — 濃度指定APIで開始した噴射を停止します。`stopAllChambers()` は別のコマンドを送るため、この噴射は止まりません。
+-   `stopAllChambersWithIntensity()` は3.1.0で追加されました（それ以前はSDKから正しい濃度指定用の停止フレームを送れませんでした）。`stopAllChambers()` との違いは送信するプロトコルフレームの長さ（21バイト/15バイト）だけで、**どちらを呼んでもデバイスは停止します**。どのAPIで開始した噴射でも止められます。
 -   `connect(aromaShooter, callback)` と `disconnect(aromaShooter, callback)` を実装しました。従来は `UnsupportedOperationException` を投げていたため、ポートを解放する手段は `disconnectAll()` のみでした。
 
 ---
@@ -205,7 +205,7 @@ usb.stopAllChambersWithIntensity();
 usb.stopAllChambersWithIntensity(aromaShooter);
 ```
 
-> 2つのAPIは異なるコマンドを送るため、**それぞれ専用の停止が必要です**。`shootWithIntensity*` で開始した噴射は `stopAllChambers()` では止まりません。
+> `stopAllChambers()` と `stopAllChambersWithIntensity()` の違いはプロトコルフレームの長さ（15バイト/21バイト）だけです。どちらのAPIで開始した噴射も、**どちらの停止でも止まります**。
 
 ---
 
@@ -259,7 +259,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 **エラーは出ないが香りが出ない。** 内部ブースターがオフになっています。`internalBooster: true`、または `internalBoosterIntensity` に0より大きい値を指定してください。
 
-**噴射が止まらない。** もう一方のAPI用の停止を呼んでいる可能性があります。`shootWithIntensity*` の後は `stopAllChambersWithIntensity()` を、`shootSimple*` の後は `stopAllChambers()` を使用してください。
+**噴射が止まらない。** 3.1.0へ更新してください。それ以前のバージョンでは濃度指定用の停止フレームが不正で、`shootWithIntensity*` で開始した噴射が止まらないことがありました。3.1.0以降は `stopAllChambers()` / `stopAllChambersWithIntensity()` のどちらでも停止します。
 
 **0を指定したのにブースターが動き続ける。** 3.1.0で修正されました。以前のバージョンでは強度0のチャンネルをコマンドに含めなかったため、デバイスが直前の指示をそのまま継続していました。
 
