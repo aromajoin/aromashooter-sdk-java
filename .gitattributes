@@ -1,0 +1,16 @@
+# Normalise line endings so a checkout is consistent regardless of each
+# machine's core.autocrlf setting.
+* text=auto
+
+# Scripts that must keep a specific line ending to run.
+*.bat        text eol=crlf
+*.cmd        text eol=crlf
+gradlew      text eol=lf
+
+# Binary files git must never touch.
+*.jar        binary
+*.aar        binary
+*.png        binary
+*.jpg        binary
+*.jpeg       binary
+*.gif        binary
