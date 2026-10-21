@@ -2,14 +2,14 @@
 
 # Aroma Shooter SDK (Java)
 
-**Version 3.1.0**
+**Version 4.0.0**
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.aromajoin.sdk/jvm?style=flat-square&label=Maven%20Central)](https://central.sonatype.com/artifact/com.aromajoin.sdk/jvm)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 A desktop Java SDK for connecting to and controlling [Aroma Shooter devices](https://aromajoin.com/products/aroma-shooter) over **USB**.
 
-> **Important — the internal booster is required for scent to be emitted.** Enable it on every shoot: pass `internalBooster: true` (simple API) or `internalBoosterIntensity > 0` (intensity API). With the internal booster off, no scent comes out.
+> **Important — the inner booster is required for scent to be emitted.** Enable it on every shoot: pass `innerBooster: true` (simple API) or `innerBoosterIntensity > 0` (intensity API). With the inner booster off, no scent comes out.
 
 This SDK ships as two Maven artifacts:
 
@@ -65,7 +65,7 @@ Gradle:
 
 ```gradle
 dependencies {
-    implementation 'com.aromajoin.sdk:jvm:3.1.0'
+    implementation 'com.aromajoin.sdk:jvm:4.0.0'
 }
 ```
 
@@ -75,7 +75,7 @@ Maven:
 <dependency>
   <groupId>com.aromajoin.sdk</groupId>
   <artifactId>jvm</artifactId>
-  <version>3.1.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
@@ -257,7 +257,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 **No devices found.** Check the FTDI driver is installed and that the port is not already open in another application — a serial port is exclusive. If a previous run of your own program did not call `disconnectAll()`, its port may still be held.
 
-**Nothing comes out, but no error.** The internal booster is off. Pass `internalBooster: true`, or an `internalBoosterIntensity` above 0.
+**Nothing comes out, but no error.** The inner booster is off. Pass `innerBooster: true`, or an `innerBoosterIntensity` above 0.
 
 **The scent does not stop.** Update to 3.1.0. Earlier versions sent a malformed intensity-stop frame, so a shoot started with `shootWithIntensity*` could keep running. From 3.1.0 either `stopAllChambers()` or `stopAllChambersWithIntensity()` halts the device.
 

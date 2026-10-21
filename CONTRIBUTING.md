@@ -19,9 +19,9 @@ That means:
 
 Two behaviours get reported often and are not bugs. Please rule them out first:
 
-- **Nothing comes out, but there is no error.** The internal booster has to be on for
-  scent to be emitted. Pass `internalBooster: true` for the simple API, or an
-  `internalBoosterIntensity` above 0 for the intensity API.
+- **Nothing comes out, but there is no error.** The inner booster has to be on for
+  scent to be emitted. Pass `innerBooster: true` for the simple API, or an
+  `innerBoosterIntensity` above 0 for the intensity API.
 - **The scent does not stop.** The simple and intensity APIs send different commands and
   each has its own stop. `stopAllChambers()` will not stop a shoot started with
   `shootWithIntensity*` — use `stopAllChambersWithIntensity()`.

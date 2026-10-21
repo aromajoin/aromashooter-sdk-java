@@ -2,14 +2,14 @@
 
 # Aroma Shooter SDK (Java)
 
-**Version 3.1.0**
+**Version 4.0.0**
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.aromajoin.sdk/jvm?style=flat-square&label=Maven%20Central)](https://central.sonatype.com/artifact/com.aromajoin.sdk/jvm)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 [Aroma Shooter](https://aromajoin.com/products/aroma-shooter)を**USB**経由で接続・制御するためのデスクトップJava向けSDKです。
 
-> **重要 — 香りを噴射するには内部ブースターが必要です。** 噴射のたびに有効にしてください。シンプルAPIでは `internalBooster: true`、強度APIでは `internalBoosterIntensity > 0` を指定します。内部ブースターがオフの場合、香りは出ません。
+> **重要 — 香りを噴射するには inner booster が必要です。** 噴射のたびに有効にしてください。シンプルAPIでは `innerBooster: true`、強度APIでは `innerBoosterIntensity > 0` を指定します。inner booster がオフの場合、香りは出ません。
 
 本SDKは2つのMavenアーティファクトで構成されます。
 
@@ -65,7 +65,7 @@ Gradle:
 
 ```gradle
 dependencies {
-    implementation 'com.aromajoin.sdk:jvm:3.1.0'
+    implementation 'com.aromajoin.sdk:jvm:4.0.0'
 }
 ```
 
@@ -75,7 +75,7 @@ Maven:
 <dependency>
   <groupId>com.aromajoin.sdk</groupId>
   <artifactId>jvm</artifactId>
-  <version>3.1.0</version>
+  <version>4.0.0</version>
 </dependency>
 ```
 
@@ -257,7 +257,7 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 **デバイスが見つからない。** FTDIドライバがインストールされているか、またそのポートが他のアプリケーションで開かれていないかを確認してください。シリアルポートは排他的に使用されます。ご自身のプログラムの前回実行時に `disconnectAll()` を呼んでいない場合、そのポートが保持されたままの可能性があります。
 
-**エラーは出ないが香りが出ない。** 内部ブースターがオフになっています。`internalBooster: true`、または `internalBoosterIntensity` に0より大きい値を指定してください。
+**エラーは出ないが香りが出ない。** inner booster がオフになっています。`innerBooster: true`、または `innerBoosterIntensity` に0より大きい値を指定してください。
 
 **噴射が止まらない。** 3.1.0へ更新してください。それ以前のバージョンでは強度用の停止フレームが不正で、`shootWithIntensity*` で開始した噴射が止まらないことがありました。3.1.0以降は `stopAllChambers()` / `stopAllChambersWithIntensity()` のどちらでも停止します。
 
