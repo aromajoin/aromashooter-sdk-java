@@ -271,4 +271,8 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 非商用利用は [PolyForm Noncommercial License 1.0.0](LICENSE) のもとで無料です。Aroma Shooter® を使った自社製品・サービスの開発を含む商用利用には、Aromajoin のライセンスが必要です：contact@aromajoin.com。サンプルコードは [MIT-0](LICENSE-SAMPLES) です。4.0.0 までのバージョンは Apache-2.0 のままで、4.0.1 から適用されます。
 
+### 商用ライセンス
+
+この SDK を使って Aroma Shooter® 対応の製品・サービスを開発するには、商用ライセンス（月額制）が必要です。商用利用は、ライセンスのご購入を Aromajoin が確認した後にのみ認められます。お持ちの Aroma Shooter® を商用で使いたい場合もお問い合わせください。ご利用内容に合わせて条件をご案内します。会社名、製品・サービスの内容、対象プラットフォーム（Windows、Unity、iOS など）、想定台数を添えて contact@aromajoin.com までお問い合わせください。
+
 **問題が発生したり、新機能が必要な場合は、[新しい問題](https://github.com/aromajoin/aromashooter-sdk-java/issues)を作成してください。**
