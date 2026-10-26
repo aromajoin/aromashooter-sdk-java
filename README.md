@@ -5,7 +5,7 @@
 **Version 4.0.0**
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.aromajoin.sdk/jvm?style=flat-square&label=Maven%20Central)](https://central.sonatype.com/artifact/com.aromajoin.sdk/jvm)
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![License](https://img.shields.io/badge/license-PolyForm%20Noncommercial-4EB1BA.svg?style=flat-square)](LICENSE)
 
 A desktop Java SDK for connecting to and controlling [Aroma Shooter devices](https://aromajoin.com/products/aroma-shooter) over **USB**.
 
@@ -269,6 +269,6 @@ usb.connect(aromaShooter, new ConnectCallback() {
 
 ## License
 
-Please check the [LICENSE](/LICENSE) file for the details.
+Free for noncommercial use under the [PolyForm Noncommercial License 1.0.0](LICENSE). Commercial use, including building your own product or service on Aroma Shooter®, requires a license from Aromajoin: contact@aromajoin.com. Sample code is licensed under [MIT-0](LICENSE-SAMPLES). Versions up to 4.0.0 remain under Apache-2.0; the license applies from 4.0.1.
 
 **If you get any issues or require any new features, please create a [new issue](https://github.com/aromajoin/aromashooter-sdk-java/issues).**
