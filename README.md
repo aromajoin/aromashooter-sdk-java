@@ -2,7 +2,7 @@
 
 # Aroma Shooter SDK (Java)
 
-**Version 4.0.0**
+**Version 4.0.1**
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.aromajoin.sdk/jvm?style=flat-square&label=Maven%20Central)](https://central.sonatype.com/artifact/com.aromajoin.sdk/jvm)
 [![License](https://img.shields.io/badge/license-PolyForm%20Noncommercial-4EB1BA.svg?style=flat-square)](LICENSE)
@@ -65,7 +65,7 @@ Gradle:
 
 ```gradle
 dependencies {
-    implementation 'com.aromajoin.sdk:jvm:4.0.0'
+    implementation 'com.aromajoin.sdk:jvm:4.0.1'
 }
 ```
 
@@ -75,7 +75,7 @@ Maven:
 <dependency>
   <groupId>com.aromajoin.sdk</groupId>
   <artifactId>jvm</artifactId>
-  <version>4.0.0</version>
+  <version>4.0.1</version>
 </dependency>
 ```
 
