@@ -157,7 +157,7 @@ Shoot from a specific device, by object or by serial:
 
 ```java
 usb.shootSimple(aromaShooter, 3000, true, 2, 5);
-usb.shootSimple("ASN3A01192", 3000, true, 2, 5);
+usb.shootSimple("ASN3A00001", 3000, true, 2, 5);
 ```
 
 Stop:
@@ -195,7 +195,7 @@ Shoot from a specific device, by object or by serial:
 
 ```java
 usb.shootWithIntensity(aromaShooter, 3000, 100, 0, new AromaChamber(2, 50));
-usb.shootWithIntensity("ASN3A01192", 3000, 100, 0, new AromaChamber(2, 50));
+usb.shootWithIntensity("ASN3A00001", 3000, 100, 0, new AromaChamber(2, 50));
 ```
 
 Stop:
